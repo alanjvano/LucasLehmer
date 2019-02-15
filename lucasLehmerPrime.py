@@ -1,4 +1,5 @@
 import math
+import sys
 
 def trialPrime(cur):
 	i=3
@@ -15,28 +16,31 @@ def lucasTest(prime):
 
 	residue = divmod(s[-1],2**prime - 1)
 	if residue[1] == 0:
-		merPrimes.insert(len(merPrimes),2**prime - 1)
-		print("l-length",len(s)-1);
-		print("mer-prime",merPrimes[-1])
+		mp.insert(len(mp),prime)
+		#print("l-length",len(s)-1);
+		print("M-",mp[-1],sep="")
 	else:
-		print("false")
+		print("M-",prime," false",sep="")
+
+# Variable Definitions
+s=[4]  #lucas-lehmer sequence
+p=[3]  #prime number list
+mp=[]  #Mersenne prime list
+
+#note: mp only stores prime exponent values of Mersenne Primes
+
+j = int(input("number of iterations:"))
 
 
-s=[4]
-p=[3]
-merPrimes=[]
-
-for i in range(0,8):
+for i in range(0,j):
 	buf=p[-1]
 	temp = False
 	while(temp == False):
 		buf += 2
 		if trialPrime(buf) == True:
 			p.insert(len(p),buf)
-			print("primes",p)
+			#print("primes",p)
 			temp = True
 
 	lucasTest(p[-1])
-
-print(merPrimes)
 
