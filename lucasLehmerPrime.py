@@ -1,5 +1,6 @@
 import math
 import sys
+import time
 
 def trialPrime(cur):
 	i=3
@@ -21,6 +22,9 @@ def lucasTest(prime):
 		print("M-",mp[-1],sep="")
 	else:
 		print("M-",prime," false",sep="")
+
+time_init = time.process_time()
+print(time_init)
 
 # Variable Definitions
 s=[4]  #lucas-lehmer sequence
@@ -44,3 +48,5 @@ for i in range(0,j):
 
 	lucasTest(p[-1])
 
+time_end = time.process_time() - time_init
+print(time_end)
